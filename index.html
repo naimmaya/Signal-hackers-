@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Jui Kolija 💖</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: linear-gradient(180deg, #ffd6e8 0%, #ffb3d1 100%);
+    font-family: 'Segoe UI', sans-serif;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body.dark {
+    background: linear-gradient(180deg, #1a001a 0%, #330033 100%);
+  }
+
+  .top-text { text-align: center; margin-top: 40px; }
+  .top-text h1 { font-size: 2.5rem; color: #333; transition: 0.5s; }
+  body.dark .top-text h1 { color: #fff; text-shadow: 0 0 15px #ff00ff; }
+  .top-text .tag {
+    background: #fff;
+    padding: 8px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  body.dark .top-text .tag { background: #ff00ff; color: #fff; box-shadow: 0 0 20px #ff00ff; }
+
+  .hint { color: #666; margin: 10px 0 30px; font-size: 13px; }
+  body.dark .hint { color: #aaa; }
+
+  /* Heart */
+  .heart {
+    width: 160px;
+    height: 160px;
+    background: #ec4899;
+    position: relative;
+    transform: rotate(45deg);
+    animation: beat 1s infinite;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(236,72,153,0.6);
+    transition: 0.5s;
+  }
+  .heart:before, .heart:after {
+    content: "";
+    width: 160px;
+    height: 160px;
+    background: #ec4899;
+    border-radius: 50%;
+    position: absolute;
+  }
+  .heart:before { top: -80px; left: 0; }
+  .heart:after { left: -80px; top: 0; }
+  @keyframes beat { 0%,100%{transform:rotate(45deg) scale(1);} 50%{transform:rotate(45deg) scale(1.15);} }
+
+  body.dark .heart { background: #ff00ff; box-shadow: 0 0 60px #ff00ff; }
+  body.dark .heart:before, body.dark .heart:after { background: #ff00ff; }
+
+  /* System Panel */
+  .system {
+    background: rgba(0,0,0,0.85);
+    color: #0f0;
+    padding: 18px;
+    border-radius: 15px;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 420px;
+    font-family: 'Courier New';
+    font-size: 13px;
+    border: 1px solid #0f0;
+  }
+  .system .row { display: flex; justify-content: space-between; margin: 6px 0; }
+  .system .status { color: #0ff; text-align: center; margin: 10px 0; font-weight: bold; }
+
+  .press { margin-top: 20px; text-align: center; font-size: 13px; color: #555; font-weight: bold; }
+  body.dark .press { color: #ff88ff; }
+
+  /* Code Box */
+  .code-box {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 520px;
+    font-family: 'Courier New';
+    font-size: 13px;
+    border: 1px solid #333;
+  }
+  .code-box .title { color: #569cd6; margin-bottom: 10px; font-weight: bold; }
+  .prop { color: #9cdcfe; }
+  .val { color: #ce9178; }
+
+  .particles { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index: -1; }
+  .particle {
+    position: absolute;
+    width: 6px; height: 6px;
+    background: #ff00ff;
+    border-radius: 50%;
+    animation: float 4s linear infinite;
+  }
+  @keyframes float {
+    from { transform: translateY(100vh) scale(0); opacity: 1; }
+    to { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="top-text">
+    <h1 id="mainText">আমি ভালোবাসি</h1>
+    <div class="tag" id="tagText">জুই কলিজা 💖</div>
+  </div>
+  <div class="hint">(হার্টে ক্লিক করো)</div>
+
+  <div class="heart" onclick="changeText()"></div>
+
+  <div class="system" id="systemBox">
+    <div class="status">SYSTEM READY - TOUCH TO CHARGE</div>
+    <div class="row"><span>LOVE POWER</span> <span>99%</span></div>
+    <div class="row"><span>HEART BPM</span> <span>120BPM</span></div>
+    <div class="row"><span>STATUS</span> <span>STANDBY</span></div>
+  </div>
+
+  <div class="press">PRESS & HOLD TO CHARGE</div>
+
+  <div class="code-box">
+    <div class="title">Comment 'JUI' for the code</div>
+    .jui &#123;<br>
+    &nbsp; beauty: <span class="val">infinite</span>;<br>
+    &nbsp; smile: <span class="val">"kolija"</span>;<br>
+    &nbsp; love: <span class="val">100%</span>;<br>
+    &#125;<br><br>
+    .us &#123;<br>
+    &nbsp; status: <span class="val">"forever"</span>;<br>
+    &nbsp; duration: <span class="val">eternal</span>;<br>
+    &#125;
+  </div>
+
+  <div class="particles" id="particles"></div>
+
+<script>
+let clickCount = 0;
+const texts = [
+  {h1: "আমি ভালোবাসি", tag: "জুই কলিজা 💖"},
+  {h1: "তুমি আমার", tag: "সবকিছু 🥰"},
+  {h1: "চিরদিন", tag: "তোমার সাথে ❤️"}
+];
+
+function changeText(){
+  clickCount++;
+  const t = texts[clickCount % texts.length];
+  document.getElementById('mainText').innerText = t.h1;
+  document.getElementById('tagText').innerText = t.tag;
+  
+  if(clickCount >= 3){
+    document.body.classList.add('dark');
+    document.getElementById('systemBox').innerHTML = `
+      <div class="status">UNCONDITIONAL LOVE DETECTED</div>
+      <div class="row"><span>LOVE POWER</span> <span>INFINITY</span></div>
+      <div class="row"><span>HEART BPM</span> <span>∞</span></div>
+      <div class="row"><span>STATUS</span> <span>REACTOR ONLINE</span></div>
+    `;
+    createParticles();
+  }
+}
+
+function createParticles(){
+  const container = document.getElementById('particles');
+  setInterval(()=>{
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random()*100 + '%';
+    p.style.background = `hsl(${320 + Math.random()*40},100%,60%)`;
+    container.appendChild(p);
+    setTimeout(()=>p.remove(),4000);
+  },150)
+}
+
+// Press & Hold
+let pressTimer;
+const heart = document.querySelector('.heart');
+heart.addEventListener('mousedown', ()=> {
+  pressTimer = setTimeout(()=>changeText(), 800)
+});
+heart.addEventListener('mouseup', ()=> clearTimeout(pressTimer));
+heart.addEventListener('touchstart', ()=> {
+  pressTimer = setTimeout(()=>changeText(), 800)
+});
+heart.addEventListener('touchend', ()=> clearTimeout(pressTimer));
+</script>
+</body>
+</html>
