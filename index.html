@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Jui Kolija 💖</title>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@600;700&family=Hind+Siliguri:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -13,13 +13,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 20px;
     min-height: 100vh;
     overflow: hidden;
-    position: relative;
   }
 
-  /* Rose Petals Falling */
+  /* Rose Petals */
  .petal {
     position: fixed;
     top: -10%;
@@ -29,9 +29,7 @@
     pointer-events: none;
     z-index: 1;
   }
-  @keyframes fall {
-    to { transform: translateY(110vh) rotate(720deg); }
-  }
+  @keyframes fall { to { transform: translateY(110vh) rotate(720deg); } }
 
   /* Main Card */
  .card {
@@ -40,27 +38,21 @@
     border-radius: 30px;
     padding: 30px 25px;
     width: 90%;
-    max-width: 400px;
+    max-width: 420px;
     text-align: center;
     box-shadow: 0 20px 60px rgba(255,105,180,0.4);
     border: 2px solid rgba(255,255,255,0.5);
     z-index: 2;
     animation: float 3s ease-in-out infinite;
   }
-  @keyframes float { 0%,100%{transform: translateY(0);} 50%{transform: translateY(-20px);} }
+  @keyframes float { 0%,100%{transform: translateY(0);} 50%{transform: translateY(-15px);} }
 
-  /* Cute Title */
  .title {
     font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
-    background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: sparkle 2s infinite;
-  }
-  @keyframes sparkle {
-    0%,100%{text-shadow: 0 0 10px #ff69b4;}
-    50%{text-shadow: 0 0 30px #ff1493, 0 0 50px #ff69b4;}
+    font-size: 2.8rem;
+    color: #d6007f;
+    text-shadow: 0 0 15px #ff69b4;
+    margin-bottom: 10px;
   }
 
  .name-tag {
@@ -68,18 +60,16 @@
     color: #fff;
     padding: 12px 30px;
     border-radius: 50px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     margin: 15px 0;
     box-shadow: 0 10px 30px rgba(255,20,147,0.5);
-    animation: pulse 1.5s infinite;
   }
-  @keyframes pulse { 0%,100%{scale:1;} 50%{scale:1.08;} }
 
   /* Cute Heart */
  .cute-heart {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     margin: 20px auto;
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff1493"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
     background-size: contain;
@@ -87,35 +77,26 @@
     animation: beat 0.8s infinite;
     cursor: pointer;
   }
-  @keyframes beat { 0%,100%{transform: scale(1);} 50%{transform: scale(1.2);} }
+  @keyframes beat { 0%,100%{transform: scale(1);} 50%{transform: scale(1.15);} }
 
-  /* Love Letter Box */
- .letter {
-    background: rgba(255,255,255,0.9);
+  /* Special Message Box */
+ .message-box {
+    background: rgba(255,255,255,0.95);
     border-radius: 20px;
     padding: 20px;
     margin-top: 20px;
-    font-size: 15px;
+    font-size: 16px;
     color: #d6007f;
-    line-height: 1.8;
+    line-height: 2;
     border: 2px dashed #ff69b4;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
   }
 
-  /* Buttons */
- .btn {
-    background: linear-gradient(90deg, #ff1493, #ff69b4);
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 10px 5px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(255,20,147,0.4);
-    transition: 0.3s;
-  }
- .btn:hover { transform: translateY(-3px); }
+ .hint { color: #d6007f; font-size: 13px; margin-top: 10px; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -123,47 +104,40 @@
 <div id="petals"></div>
 
 <div class="card">
-  <div class="title" id="mainText">I Love You</div>
-  <div class="name-tag" id="nameTag">Jui Kolija 💖</div>
+  <div class="title">আমার</div>
+  <div class="name-tag">জুই কলিজা 💖</div>
 
-  <div class="cute-heart" onclick="changeMessage()"></div>
+  <div class="cute-heart" onclick="showMessage()"></div>
+  <div class="hint">হার্টের উপর চাপ দাও ❤️</div>
 
-  <div class="letter" id="loveLetter">
-    তুমি আমার সকালের প্রথম চিন্তা,<br>
-    আর রাতের শেষ স্বপ্ন।<br>
-    তোমার হাসিতেই আমার পৃথিবী 🌸
+  <div class="message-box" id="messageBox">
+    হার্টে ট্যাপ করো... কিছু স্পেশাল আছে ✨
   </div>
-
-  <button class="btn" onclick="changeMessage()">ট্যাপ করো ❤️</button>
-  <button class="btn" onclick="toggleMusic()">♪ Romantic Song</button>
 </div>
 
-<audio id="bgMusic" loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-</audio>
-
 <script>
-let msg = 0;
-const messages = [
-  {title: "I Love You", name: "Jui Kolija 💖", letter: "তুমি আমার সকালের প্রথম চিন্তা,<br>আর রাতের শেষ স্বপ্ন।<br>তোমার হাসিতেই আমার পৃথিবী 🌸"},
-  {title: "My Princess", name: "Queen Jui 👑", letter: "তোমার চোখে আমি হারিয়ে যাই,<br>তোমার কথায় আমি বেঁচে থাকি।<br>You are my everything ✨"},
-  {title: "Forever Mine", name: "Jui Baby ❤️", letter: "১০ বছর পরেও যদি দেখা হয়,<br>আমি আবার তোমাকেই ভালোবাসবো।<br>Promise! 💍"}
+let msgIndex = 0;
+const specialMessages = [
+  `সবাই হয়তো কলিজা বলে মুখে ডাকে,<br>কিন্তু আমার কাছে তুমি আসলেই<br><b>আমার কলিজার টুকরো</b>।`,
+
+  `তোমার হাসিতে<br>আমার দিন ভালো হয়ে যায়।<br>তুমি হাসলেই আমার দুনিয়া সুন্দর 🌸`,
+
+  `এই পাগলটার জীবনে<br>একটু ভালোবাসার রং ছড়িয়ে দেবে, <br><b>জুই?</b> 💌`
 ];
 
-function changeMessage(){
-  msg = (msg + 1) % messages.length;
-  document.getElementById('mainText').innerHTML = messages[msg].title;
-  document.getElementById('nameTag').innerHTML = messages[msg].name;
-  document.getElementById('loveLetter').innerHTML = messages[msg].letter;
+function showMessage(){
+  document.getElementById('messageBox').innerHTML = specialMessages[msgIndex];
+  msgIndex = (msgIndex + 1) % specialMessages.length;
 
   // Heart burst effect
-  for(let i=0; i<20; i++){
+  for(let i=0; i<15; i++){
     const heart = document.createElement('div');
     heart.innerHTML = '💖';
     heart.style.position = 'fixed';
     heart.style.left = '50%';
     heart.style.top = '50%';
     heart.style.fontSize = '20px';
+    heart.style.zIndex = '999';
     heart.style.animation = `burst 1s ease-out forwards`;
     document.body.appendChild(heart);
     setTimeout(()=>heart.remove(),1000);
@@ -184,14 +158,6 @@ function createPetals(){
   },300)
 }
 createPetals();
-
-// Music
-let playing = false;
-function toggleMusic(){
-  const m = document.getElementById('bgMusic');
-  if(!playing){ m.play(); playing = true; }
-  else{ m.pause(); playing = false; }
-}
 </script>
 
 <style>
