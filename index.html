@@ -3,243 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Jui Kolija ✨</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Hind+Siliguri:wght@600;700&display=swap" rel="stylesheet">
+<title>For My Jui Kolija 💖</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@600;700&family=Hind+Siliguri:wght@600&display=swap" rel="stylesheet">
 <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    background: #000;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 50%, #ffd1ff 100%);
     font-family: 'Hind Siliguri', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
   }
 
-  /* Galaxy Background */
-  #galaxy {
+  /* Rose Petals Falling */
+ .petal {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: -1;
+    top: -10%;
+    color: #ff69b4;
+    font-size: 25px;
+    animation: fall 10s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(720deg); }
   }
 
-  .container {
+  /* Main Card */
+ .card {
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 30px 25px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255,105,180,0.4);
+    border: 2px solid rgba(255,255,255,0.5);
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform: translateY(0);} 50%{transform: translateY(-20px);} }
+
+  /* Cute Title */
+ .title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkle 2s infinite;
+  }
+  @keyframes sparkle {
+    0%,100%{text-shadow: 0 0 10px #ff69b4;}
+    50%{text-shadow: 0 0 30px #ff1493, 0 0 50px #ff69b4;}
   }
 
-  /* Neon Title */
-  .top-text { text-align: center; margin-top: 20px; }
-  .top-text h1 { 
-    font-size: 3rem; 
-    font-family: 'Orbitron', sans-serif;
+ .name-tag {
+    background: linear-gradient(90deg, #ff1493, #ff69b4);
     color: #fff;
-    text-shadow: 
-      0 0 5px #ff00ff,
-      0 0 10px #ff00ff,
-      0 0 20px #ff00ff,
-      0 0 40px #ff00ff;
-    animation: flicker 1.5s infinite alternate;
-  }
-  @keyframes flicker {
-    0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff; }
-    20%, 24%, 55% { text-shadow: none; }
-  }
-  
-  .top-text .tag {
-    background: linear-gradient(90deg, #ff00ff, #00ffff);
     padding: 12px 30px;
     border-radius: 50px;
-    display: inline-block;
-    margin-top: 15px;
+    font-size: 1.5rem;
     font-weight: 700;
-    font-size: 1.3rem;
-    color: #000;
-    box-shadow: 0 0 30px rgba(255,0,255,0.8);
-    animation: pulse 2s infinite;
+    margin: 15px 0;
+    box-shadow: 0 10px 30px rgba(255,20,147,0.5);
+    animation: pulse 1.5s infinite;
   }
-  @keyframes pulse { 0%,100%{transform: scale(1);} 50%{transform: scale(1.1);} }
+  @keyframes pulse { 0%,100%{scale:1;} 50%{scale:1.08;} }
 
-  /* Holographic Heart */
-  .heart-wrapper { margin: 30px 0; perspective: 1000px; }
-  .heart {
+  /* Cute Heart */
+ .cute-heart {
     width: 200px;
     height: 200px;
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
-    background-size: 200% 200%;
-    position: relative;
-    transform: rotate(45deg);
-    animation: beat 0.7s infinite, gradient 3s ease infinite;
+    margin: 20px auto;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ff1493"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+    background-size: contain;
+    filter: drop-shadow(0 0 30px #ff1493);
+    animation: beat 0.8s infinite;
     cursor: pointer;
-    box-shadow: 0 0 80px #ff00ff;
-    border-radius: 15px;
   }
-  @keyframes gradient {
-    0%{background-position: 0% 50%;}
-    50%{background-position: 100% 50%;}
-    100%{background-position: 0% 50%;}
-  }
-  .heart:before, .heart:after {
-    content: "";
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff);
-    background-size: 200% 200%;
-    border-radius: 50%;
-    position: absolute;
-    animation: gradient 3s ease infinite;
-  }
-  .heart:before { top: -100px; left: 0; }
-  .heart:after { left: -100px; top: 0; }
+  @keyframes beat { 0%,100%{transform: scale(1);} 50%{transform: scale(1.2);} }
 
-  /* Holographic Card */
-  .system {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(20px);
-    color: #00ffff;
-    padding: 25px;
+  /* Love Letter Box */
+ .letter {
+    background: rgba(255,255,255,0.9);
     border-radius: 20px;
-    width: 90%;
-    max-width: 450px;
-    font-family: 'Courier New';
-    font-size: 15px;
-    border: 2px solid;
-    border-image: linear-gradient(45deg, #ff00ff, #00ffff) 1;
-    box-shadow: 0 0 40px rgba(0,255,255,0.3);
-  }
-  .system .status { 
-    color: #00ff00; 
-    text-align: center; 
-    margin: 12px 0; 
-    font-weight: bold; 
-    font-size: 16px;
-    animation: blink 1s infinite;
-  }
-  @keyframes blink { 50%{opacity: 0.5;} }
-
-  .code-box {
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(10px);
-    color: #00ff00;
     padding: 20px;
-    border-radius: 15px;
-    margin-top: 25px;
-    width: 90%;
-    max-width: 550px;
-    font-family: 'Courier New';
-    font-size: 14px;
-    border: 1px solid #00ffff;
-    box-shadow: 0 0 30px rgba(0,255,255,0.2);
+    margin-top: 20px;
+    font-size: 15px;
+    color: #d6007f;
+    line-height: 1.8;
+    border: 2px dashed #ff69b4;
   }
 
-  /* Shooting Stars */
-  .star {
-    position: absolute;
-    width: 2px; height: 2px;
-    background: white;
-    border-radius: 50%;
-    animation: shoot 3s linear infinite;
+  /* Buttons */
+ .btn {
+    background: linear-gradient(90deg, #ff1493, #ff69b4);
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 5px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255,20,147,0.4);
+    transition: 0.3s;
   }
-  @keyframes shoot {
-    from { transform: translate(0,0); opacity: 1; }
-    to { transform: translate(300px,300px); opacity: 0; }
-  }
+ .btn:hover { transform: translateY(-3px); }
 </style>
 </head>
 <body>
 
-<canvas id="galaxy"></canvas>
+<div id="petals"></div>
 
-<div class="container">
-  <div class="top-text">
-    <h1 id="mainText">I LOVE</h1>
-    <div class="tag" id="tagText">JUI KOLIJA ✨</div>
+<div class="card">
+  <div class="title" id="mainText">I Love You</div>
+  <div class="name-tag" id="nameTag">Jui Kolija 💖</div>
+
+  <div class="cute-heart" onclick="changeMessage()"></div>
+
+  <div class="letter" id="loveLetter">
+    তুমি আমার সকালের প্রথম চিন্তা,<br>
+    আর রাতের শেষ স্বপ্ন।<br>
+    তোমার হাসিতেই আমার পৃথিবী 🌸
   </div>
 
-  <div class="heart-wrapper">
-    <div class="heart" onclick="changeText()"></div>
-  </div>
-
-  <div class="system" id="systemBox">
-    <div class="status">>> SYSTEM BOOTING...</div>
-    <div style="display:flex; justify-content:space-between;"><span>LOVE MATRIX</span> <span>ACTIVATED</span></div>
-    <div style="display:flex; justify-content:space-between;"><span>POWER CORE</span> <span>99.9%</span></div>
-    <div style="display:flex; justify-content:space-between;"><span>TARGET</span> <span>JUI KOLIJA</span></div>
-  </div>
-
-  <div class="code-box">
-    <div style="color:#569cd6;">// LOVE PROTOCOL v3.0</div>
-    const jui = {<br>
-    &nbsp; beauty: <span style="color:#ce9178">"infinite"</span>,<br>
-    &nbsp; status: <span style="color:#ce9178">"my_queen"</span>,<br>
-    &nbsp; love: <span style="color:#b5cea8">Infinity</span><br>
-    }
-  </div>
+  <button class="btn" onclick="changeMessage()">ট্যাপ করো ❤️</button>
+  <button class="btn" onclick="toggleMusic()">♪ Romantic Song</button>
 </div>
 
+<audio id="bgMusic" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-let clickCount = 0;
-const texts = [
-  {h1: "I LOVE", tag: "JUI KOLIJA ✨"},
-  {h1: "YOU ARE", tag: "MY QUEEN 👑"},
-  {h1: "FOREVER", tag: "MINE ONLY ❤️"}
+let msg = 0;
+const messages = [
+  {title: "I Love You", name: "Jui Kolija 💖", letter: "তুমি আমার সকালের প্রথম চিন্তা,<br>আর রাতের শেষ স্বপ্ন।<br>তোমার হাসিতেই আমার পৃথিবী 🌸"},
+  {title: "My Princess", name: "Queen Jui 👑", letter: "তোমার চোখে আমি হারিয়ে যাই,<br>তোমার কথায় আমি বেঁচে থাকি।<br>You are my everything ✨"},
+  {title: "Forever Mine", name: "Jui Baby ❤️", letter: "১০ বছর পরেও যদি দেখা হয়,<br>আমি আবার তোমাকেই ভালোবাসবো।<br>Promise! 💍"}
 ];
 
-function changeText(){
-  clickCount++;
-  const t = texts[clickCount % texts.length];
-  document.getElementById('mainText').innerText = t.h1;
-  document.getElementById('tagText').innerText = t.tag;
-  
-  if(clickCount >= 3){
-    document.getElementById('systemBox').innerHTML = `
-      <div class="status">>> INFINITE LOVE DETECTED</div>
-      <div style="display:flex; justify-content:space-between;"><span>LOVE MATRIX</span> <span>OVERLOAD</span></div>
-      <div style="display:flex; justify-content:space-between;"><span>POWER CORE</span> <span>∞</span></div>
-      <div style="display:flex; justify-content:space-between;"><span>STATUS</span> <span>SOULMATE CONNECTED</span></div>
-    `;
+function changeMessage(){
+  msg = (msg + 1) % messages.length;
+  document.getElementById('mainText').innerHTML = messages[msg].title;
+  document.getElementById('nameTag').innerHTML = messages[msg].name;
+  document.getElementById('loveLetter').innerHTML = messages[msg].letter;
+
+  // Heart burst effect
+  for(let i=0; i<20; i++){
+    const heart = document.createElement('div');
+    heart.innerHTML = '💖';
+    heart.style.position = 'fixed';
+    heart.style.left = '50%';
+    heart.style.top = '50%';
+    heart.style.fontSize = '20px';
+    heart.style.animation = `burst 1s ease-out forwards`;
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),1000);
   }
 }
 
-// Galaxy Stars Animation
-const canvas = document.getElementById('galaxy');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-let stars = [];
-for(let i=0; i<200; i++){
-  stars.push({x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2, s: Math.random()*0.05})
+// Rose petals
+function createPetals(){
+  const container = document.getElementById('petals');
+  setInterval(()=>{
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.innerHTML = '🌸';
+    p.style.left = Math.random()*100 + '%';
+    p.style.animationDuration = Math.random()*5 + 8 + 's';
+    container.appendChild(p);
+    setTimeout(()=>p.remove(),13000);
+  },300)
 }
-function animateGalaxy(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle = '#fff';
-  stars.forEach(s=>{
-    ctx.beginPath();
-    ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
-    ctx.fill();
-    s.y += s.s;
-    if(s.y > canvas.height) s.y = 0;
-  })
-  requestAnimationFrame(animateGalaxy);
-}
-animateGalaxy();
+createPetals();
 
-// Shooting stars
-setInterval(()=>{
-  const star = document.createElement('div');
-  star.className = 'star';
-  star.style.left = Math.random()*100 + '%';
-  star.style.top = Math.random()*50 + '%';
-  document.body.appendChild(star);
-  setTimeout(()=>star.remove(),3000);
-},800)
+// Music
+let playing = false;
+function toggleMusic(){
+  const m = document.getElementById('bgMusic');
+  if(!playing){ m.play(); playing = true; }
+  else{ m.pause(); playing = false; }
+}
 </script>
+
+<style>
+@keyframes burst {
+  to { transform: translate(calc(-100px + 200px * Math.random()), calc(-100px + 200px * Math.random())) scale(0); opacity: 0; }
+}
+</style>
 </body>
 </html>
